@@ -1,4 +1,3 @@
-
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,9 +44,6 @@ namespace API.Controllers
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user)
             };
-
-
-
         }
 
         [HttpPost("login")]
@@ -70,8 +66,6 @@ namespace API.Controllers
                 Token = _tokenService.CreateToken(user) 
             };
         }
-
-
         private async Task<bool> UserExists(string username)
         {
             return await _context.Users.AnyAsync(x => x.UserName == username.ToLower());
